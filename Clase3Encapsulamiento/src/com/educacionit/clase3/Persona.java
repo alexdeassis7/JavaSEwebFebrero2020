@@ -1,42 +1,12 @@
 package com.educacionit.clase3;
-//Atajos de teclado :
-
-//alt + shift + s
-//ctrl + shift + s 
-//RUN APP = ctrl + F11
 
 public class Persona {
-	// atributos de la clase persona
+
+//	alt + shift + s
+//	ctrl + shift + s 
+//	RUN APP = ctrl + F11
+
 	private int edad = 18;
-	private String nombre;
-	
-	private static int contadorPersonas;
-	
-	public Persona() {
-		contadorPersonas++;
-	}
-	
-	public static int getContadorPersonas() {
-		return contadorPersonas;
-	}
-
-	public static void setContadorPersonas(int contadorPersonas) {
-		Persona.contadorPersonas = contadorPersonas;
-	}
-	public static void incrementarContador() {
-		contadorPersonas++;
-	}
-
-
-	public String getNombre() {
-		return nombre;
-	}
-
-	public void setNombre(String nombre) {
-		this.nombre = nombre;
-	}
-
-
 	// getters and settters
 	public void setEdad(int t) {
 		// procedimientos
@@ -54,5 +24,7 @@ public class Persona {
 	public int getEdad() {
 		return edad;
 	}
+	
+	
 
 }
