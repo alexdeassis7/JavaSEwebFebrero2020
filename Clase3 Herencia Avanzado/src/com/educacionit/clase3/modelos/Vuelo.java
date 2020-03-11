@@ -1,7 +1,7 @@
 package com.educacionit.clase3.modelos;
 
 //CLASE PADRE 
-public class Vuelo {
+public  class Vuelo {
 
 	public int numVuelo;
 	public int pasajeros;
@@ -13,9 +13,15 @@ public class Vuelo {
 		asientosDisponibles = new boolean[150];
 		for (int i = 0; i < getAsiento(); i++) {
 			asientosDisponibles[i] = true;
+			
 		}
+		
+		System.out.println("se inicializaron todos los asientos del vuelo ");
 	}
-
+	
+	//DEFINO UN METODO ABSTRACTO
+	//public abstract boolean agregarPasajeroConDiscapacidad(Passenger p1) ;
+	
 	public Vuelo() {
 
 	}
@@ -38,11 +44,14 @@ public class Vuelo {
 		return getAsiento();
 	}
 
+
+	
+	
 	public void agregarPasajero(Passenger p1) {
 		if (asientoDisponible()) {
 			// si quedan asientos subimos al pasajero al avion
 			pasajeros += 1;
-			System.out.println("subimos al pasajero al avion");
+			System.out.println("subimos al pasajero y sus "+ p1.getTotalEquipaje()+ " bolsos  al avion");
 
 		} else {
 
