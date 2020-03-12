@@ -1,24 +1,28 @@
 package com.educacionit.clase3.modelos;
 
-public class SeleccionFutbol {
-	
+public abstract class SeleccionFutbol {
+
 	protected int id;
 	protected String nombre;
 	protected String apellido;
 	protected int edad;
 
 	public void concentrarse() {
-		System.out.println("estoy concentrando En la SelecionFutbol");
+		System.out.println(" (Clase Padre) estoy concentrando En la SelecionFutbol");
 	}
 
 	public void viajar() {
-		System.out.println("estoy viajando En la SelecionFutbol");
+		System.out.println(" (Clase Padre) estoy viajando En la SelecionFutbol");
 	}
 
-	
-	
-	
-	
+	public void partidoFutbol() {
+		System.out.println("(Clase Padre) Asiste al Partido de Fùtbol");
+	}
+
+	// METODO ABSTRACTO
+	public abstract void entrenamiento();
+
+	// constructores
 	public SeleccionFutbol() {
 
 	}
@@ -31,6 +35,7 @@ public class SeleccionFutbol {
 		this.edad = edad;
 	}
 
+	// GETTERS Y SETTERS
 	public int getId() {
 		return id;
 	}
