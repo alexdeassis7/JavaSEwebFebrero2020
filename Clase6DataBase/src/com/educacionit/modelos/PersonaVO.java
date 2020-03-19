@@ -17,7 +17,6 @@ public class PersonaVO {
 
 	public PersonaVO(Integer idPersona, Integer edadPersona, String nombrePersona, String profesionPersona,
 			Integer telefonoPersona) {
-
 		this.idPersona = idPersona;
 		this.edadPersona = edadPersona;
 		this.nombrePersona = nombrePersona;
@@ -65,4 +64,12 @@ public class PersonaVO {
 		this.telefonoPersona = telefonoPersona;
 	}
 
+	@Override
+	public String toString() {
+		return "PersonaVO [idPersona=" + idPersona + ", edadPersona=" + edadPersona + ", nombrePersona=" + nombrePersona
+				+ ", profesionPersona=" + profesionPersona + ", telefonoPersona=" + telefonoPersona + "]";
+	}
+
+	
+	
 }

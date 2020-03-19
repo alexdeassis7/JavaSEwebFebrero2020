@@ -11,6 +11,7 @@ public class AppPrincipal {
 	public static void main(String[] args) {
 
 		PersonaVO p1 = new PersonaVO();
+		PersonaVO p2 = null;
 
 		Integer idPersona = Integer.parseInt(JOptionPane.showInputDialog("ingrese el id "));
 		Integer edadPersona = Integer.parseInt(JOptionPane.showInputDialog("ingrese el edad "));
@@ -27,6 +28,15 @@ public class AppPrincipal {
 		PersonaDAO pd = new PersonaDAO();
 
 		pd.registrarPersona(p1);
+
+		Integer idPersonaBuscada = Integer.parseInt(JOptionPane.showInputDialog("ingrese el id de la persona a buscar por favor"));
+
+		p2 = pd.buscarPersona(idPersonaBuscada);
+		
+		if (p2 != null)
+			JOptionPane.showMessageDialog(null, p2.toString());
+		else
+			JOptionPane.showMessageDialog(null, "no existe ningun registro en la tabla con el id " + idPersonaBuscada);
 
 	}
 
