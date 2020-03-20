@@ -44,9 +44,9 @@ public class PersonaDAO {
 		Conexion conex = new Conexion();
 
 		PersonaVO persona = new PersonaVO();
-		
+
 		boolean existe = false;
-		
+
 		try {
 
 			// Statement estatuto = conex.getConnection().createStatement();
@@ -57,7 +57,7 @@ public class PersonaDAO {
 			ResultSet res = consulta.executeQuery();
 
 			if (res.next()) {
-				
+
 				existe = true;
 				System.out.println("se encontro el registro buscado ");
 				persona.setIdPersona(Integer.parseInt(res.getString("id")));
@@ -67,7 +67,7 @@ public class PersonaDAO {
 				persona.setTelefonoPersona(Integer.parseInt(res.getString("telefono")));
 
 			}
-			
+
 			res.close();
 			conex.desconectar();
 
@@ -83,5 +83,67 @@ public class PersonaDAO {
 		}
 
 	}
+
+	public void modificarPersona(PersonaVO miPersona) {
+
+		Conexion conex = new Conexion();
+		try {
+
+//			String consulta = "UPDATE persona SET id = ? , nombre = ? , edad = ? , profesion = ? , telefono = ? WHERE id = ?";
+			String consulta = "UPDATE persona SET nombre = ? WHERE id = ?";
+
+			PreparedStatement estatuto = conex.getConnection().prepareStatement(consulta);
+
+//			estatuto.setInt(1, miPersona.getIdPersona());
+			estatuto.setString(1, miPersona.getNombrePersona());
+//			estatuto.setInt(3, miPersona.getEdadPersona());
+//			estatuto.setString(4, miPersona.getProfesionPersona());
+//			estatuto.setInt(5, miPersona.getTelefonoPersona());
+			estatuto.setInt(2, miPersona.getIdPersona());
+
+			estatuto.executeUpdate();
+
+			JOptionPane.showMessageDialog(null, "Se Ha Modificado Correctamente el registro ", "Confirmacion",
+					JOptionPane.INFORMATION_MESSAGE);
+
+			estatuto.close();
+			conex.desconectar();
+
+		} catch (SQLException e) {
+			System.out.println(e.getMessage());
+			JOptionPane.showMessageDialog(null, "No se modifico ningun registro ");
+		}
+
+	}
+
+	public void eliminarPersona(int codigo) {
+		Conexion conex = new Conexion();
+
+		try {
+//			String consulta = "DELETE from persona where id = ?";
+//			PreparedStatement estatuto = conex.getConnection().prepareStatement(consulta);
+//			estatuto.setInt(1, codigo);
+//			
+			Statement estatuto = conex.getConnection().createStatement();
+			
+			int devolucion = estatuto.executeUpdate("DELETE from persona where id =  " + codigo );
+			System.out.println(devolucion);
+			if(devolucion != 0)
+				JOptionPane.showMessageDialog(null, "Se ah Eliminado correctamente el registro con id " + codigo,"Informacion ", JOptionPane.INFORMATION_MESSAGE);
+			else
+				JOptionPane.showMessageDialog(null, "no se elimino ningun registro  " + codigo,"Informacion ", JOptionPane.INFORMATION_MESSAGE);
+				
+			estatuto.close();
+			conex.desconectar();
+
+		} catch (SQLException e) {
+			System.out.println(e.getMessage());
+			e.printStackTrace();
+			JOptionPane.showMessageDialog(null, "Error al eliminar ", "Error", JOptionPane.ERROR_MESSAGE);
+
+		}
+
+	}
+//	CRUD END
 
 }
