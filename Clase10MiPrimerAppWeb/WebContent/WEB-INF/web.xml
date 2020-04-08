@@ -11,4 +11,14 @@
     <welcome-file>default.jsp</welcome-file>
     
   </welcome-file-list>
+  
+<!--   <servlet> -->
+<!--   		<servlet-name>login.do</servlet-name> -->
+<!--   		<servlet-class>com.educacionit.controllers.ProcesoLogin</servlet-class> -->
+<!--   </servlet> -->
+<!--   <servlet-mapping> -->
+<!--   		<servlet-name>login.do</servlet-name> -->
+<!--   		<url-pattern>/login.do</url-pattern> -->
+<!--   </servlet-mapping> -->
+  
 </web-app>
