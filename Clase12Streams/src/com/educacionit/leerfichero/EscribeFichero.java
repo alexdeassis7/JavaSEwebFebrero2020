@@ -10,7 +10,7 @@ public class EscribeFichero {
 		PrintWriter pw = null;
 
 		try {
-			fichero = new FileWriter("C:\\Users\\Alex\\Documents\\archivoClase12.txt", true );
+			fichero = new FileWriter("	", true );
 			
 			pw = new PrintWriter(fichero);
 			
